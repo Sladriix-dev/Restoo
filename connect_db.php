@@ -1,18 +1,19 @@
-<?php
+<?php  
 
-const ERROR_LOG_FILE = "errors.log";
-
-function connect_db ($host, $username, $password, $port, $db)
-{
-    try
-    {
-        $connect = new PDO ("mysql:host=$host; dbname=$db; port=$port", $username, $password);
-        $connect -> setAttribue (PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        return $connect;
-    }
-    catch (PDOexception $e)
-    {
-        file_put_contents(ERROR_LOG_FILE, $e->getMESSAGE(), FILE_APPEND);
-        die ("PDO ERROR : ".$e->getMessage()."storage in ".ERROR_LOG_FILE."\n");
-    }
-}
+session_start();
+    class dbConnect {  
+        function __construct() {  
+            require_once('config.php');  
+            $conn = mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);  
+            mysql_select_db(DB_DATABSE, $conn);  
+            if(!$conn)// testing the connection  
+            {  
+                die ("Cannot connect to the database");  
+            }   
+            return $conn;  
+        }  
+        public function Close(){  
+            mysql_close();  
+        }  
+    }  
+?>  
