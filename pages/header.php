@@ -1,3 +1,10 @@
+<?php 
+
+require '../../config.php';
+require '../../Root.php';
+require ROOT."/vendor/autoload.php";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,13 +15,15 @@
 </head>
 <body>
 
+
+
     <header>
         <h1>Connexion et inscription</h1>
         <nav>
             <ul>
-                <a href="connexion.php">Connexion</a>
-                <a href="inscription.php">Inscription</a>
-                <a></a>
+                <a href="../connexion/connexion.php">Connexion</a>
+                <a href="../inscription/inscription.php">Inscription</a>
+                <a href="../recettes/recettes.php">Liste des recettes</a>
 
             </ul>
         </nav>

@@ -1,3 +1,5 @@
+<?php include_once "../header.php" ?>
+
 <section>
     <div id="login">
         <form name="login" method="post" action="">
@@ -20,8 +22,9 @@
             <p class="change_link">
                 Vous n'êtes pas membre ?
             </p>
-                <a href="inscription.php" class="to_register">Rejoignez-nous !</a>
+                <a href="../inscription/inscription.php" class="to_register">Rejoignez-nous !</a>
             </p>         
         </form>
     </div>
 </section>
+<?php include_once "../footer.php" ?>
