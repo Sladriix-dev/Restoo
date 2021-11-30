@@ -8,8 +8,8 @@
 </head>
 <body>
     <header>
-        <div class="container">
-            <img class="logo" href="" src="../asset/")>
+        <div class="header">
+            <img class="header-logo" href="" src="../asset/")>
             <a href=""> Accueil </a>
             <a href=""> Présentation </a>
             <a href=""> Contact </a>
@@ -19,7 +19,7 @@
 
 <style>
 
-.container {
+.header {
     width: 100%;
     height: 70px;
     display: flex;
@@ -32,18 +32,18 @@
     background: linear-gradient(90deg, black, 90%, white);
 }
 
-.container a {
+.header a {
     color: white;
     padding: 10px 100px;
     text-decoration: none;
 }
 
-.container a:hover {
+.header a:hover {
     text-decoration: underline;
     text-shadow: 1px 3px 5px white;
 }
 
-.logo {
+.header-logo {
 
 }
 
