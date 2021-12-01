@@ -11,13 +11,11 @@ $admin = new Admin();
 $recs = $rec->getAllRecettes();
 
 //On vérifie que la session existe pour éviter de recevoir une erreur PHP
-if (isset($_SESSION['util_isAdmin'])) {
-    
+if (!isset($_SESSION['util_isAdmin'])) {
     //Si l'utilisateur n'est pas un admnistrateur et essaye d'accéder au lien, celui-ci est redirigé vers la page d'accueil
-    if ($_SESSION['util_isAdmin'] = false) {
         header('Location: ../accueil/index.php');
         exit();
-    }
+
 }
 
 ?>

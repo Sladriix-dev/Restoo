@@ -21,17 +21,13 @@ if($_POST['login']){
         $_SESSION['alert'] = "<div class='alert'>Connexion réussi !</div>";
         echo '<script type="text/javascript">
         window.location = "../../pages/accueil/index.php"
-        </script>';        
-        die();
-
-
-    }else{  
+        </script>';       
+    }
+    else{  
         $_SESSION['alert'] = "<div class='alert'>La connexion à échoué !</div>";
         echo '<script type="text/javascript">
         window.location = "connexion.php"
         </script>';         
-        die();
-
     }
             
     

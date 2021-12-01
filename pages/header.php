@@ -38,11 +38,13 @@ require ROOT."/vendor/autoload.php";
                 <a href="../recettes/recettes.php">Liste des recettes</a>
                 <?php 
                 //Si l'utilisateur est administrateur, alors l'accès administrateur s'affiche
-                if (isset($_SESSION['util_isAdmin'])) {
-                    echo '<a href="../admin/admin.php">Admnistration</a>';
-                }
+
+    
                 //Si l'utilisateur n'est pas connecté, il peut s'inscrire ou se déconnecter
                 if (isset($_SESSION['util_nom'])) {
+                    if (isset($_SESSION['util_isAdmin'])) {
+                        echo '<a href="../admin/admin.php">Admnistration</a>';
+                    }
                     echo '<a href="">Bienvenue, '.$_SESSION['util_nom'].'</a>';
                     echo '<a href="../deconnexion/deconnexion.php">Déconnexion</a>';
                 } 
