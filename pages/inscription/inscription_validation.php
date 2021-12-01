@@ -1,5 +1,8 @@
 <?php
 
+require '../header.php';
+
+
 use App\User\User;
 require ROOT."/vendor/autoload.php";
 
@@ -26,16 +29,16 @@ if($_POST['register']){
                 $register = $user->inscriptionUtilisateur();  
                 if($register){  
                     $_SESSION['alert'] = "<div class='alert'>Inscription réussi !</div>";
-                    header("Location: ", ROOT."/pages/restaurant.php"); /* Redirection du navigateur */
+                    header("Location: ", "../index.php"); /* Redirection du navigateur */
 
                 }else{  
                     $_SESSION['alert'] = "<div class='alert'>L'inscription à échoué !</div>";
-                    header("Location: ", ROOT."/pages/inscription.php"); /* Redirection du navigateur */
+                    header("Location: ", "inscription.php"); /* Redirection du navigateur */
                 }
             }
         else {
             echo "<div class='alert'>L'adresse email est déjà existante ' !</div>";  
-            header("Location: ", ROOT."/pages/inscription.php"); /* Redirection du navigateur */
+            header("Location: ", "/pages/inscription.php"); /* Redirection du navigateur */
         }
     }
 }

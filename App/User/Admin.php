@@ -1,11 +1,12 @@
 <?php
-    namespace App\User;
 
-    class Admin extends User {
-        protected bool $isAdmin;
+namespace App\User;
+use \Pdo;
+
+    class Admin  {
 
         public function __construct(){
-            $this->isAdmin = false;
+            $this->db = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);    
         }
 
         public function userAdmin() {

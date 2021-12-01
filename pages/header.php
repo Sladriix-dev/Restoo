@@ -11,48 +11,39 @@ require ROOT."/vendor/autoload.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link src="C:\Users\DCHML\OneDrive\Bureau\Travail\IPSSI\3x1\Restoo\css" rel="stylesheet">
+
+    <!-- Insertion des liens de styles et de fonts -->
+    <link href="../../css/bootstrap.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@300&family=Outfit:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Connexion et inscription</h1>
+    <header class="header">
         <nav>
             <ul>
-                <a href="../connexion/connexion.php">Connexion</a>
-                <a href="../inscription/inscription.php">Inscription</a>
+                <a href="../accueil/index.php">Accueil</a>
                 <a href="../recettes/recettes.php">Liste des recettes</a>
+                <?php 
+                //Si l'utilisateur est administrateur, alors l'accès administrateur s'affiche
+                if (isset($_SESSION['util_isAdmin'])) {
+                    echo '<a href="../admin/admin.php">Admnistration</a>';
+                }
+                //Si l'utilisateur n'est pas connecté, il peut s'inscrire ou se déconnecter
+                if (isset($_SESSION['util_nom'])) {
+                    echo '<a href="">Bienvenue, '.$_SESSION['util_nom'].'</a>';
+                    echo '<a href="../deconnexion/deconnexion.php">Déconnexion</a>';
+                } 
 
+                else {
+                    echo '<a href="../connexion/connexion.php">Connexion</a>
+                    <a href="../inscription/inscription.php">Inscription</a>';
+                }
+                
+                ?>
             </ul>
         </nav>
-</body>
-<style>
+    </header>
+    <div id="margin-top">
 
-.header {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    position: fixed;
-    font-size: 20px;
-    margin-top: -8px;
-    margin-left: -8px;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(90deg, black, 90%, white);
-}
-
-.header a {
-    color: white;
-    padding: 10px 100px;
-    text-decoration: none;
-}
-
-.header a:hover {
-    text-decoration: underline;
-    text-shadow: 1px 3px 5px white;
-}
-
-.header-logo {
-
-}
-
-</style>

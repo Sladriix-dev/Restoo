@@ -1,5 +1,22 @@
 * {
     margin: 0;
+    font-family: 'M PLUS 2', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+#margin-top {
+    padding-top: 80px;
+}
+
+section {
+    min-height: 80vh;
 }
 
 .header {
@@ -7,12 +24,12 @@
     height: 70px;
     display: flex;
     position: fixed;
-    font-size: 20px;
+    font-size: 0.8em;
     margin-top: -8px;
     margin-left: -8px;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(90deg, black, 90%, white);
+    background: linear-gradient(90deg, black, 95%, #292C6D);
 }
 .header a {
     color: white;
@@ -20,8 +37,56 @@
     text-decoration: none;
 }
 .header a:hover {
-    text-decoration: underline;
-    text-shadow: 1px 3px 5px white;
+    transition: 0.2s color;
+    color: grey;
 }
-.header-logo {
+
+footer {
+    position: relative;
+    background-color: #082032;
+    color: white;
+    display: flex;
+}
+
+footer div {
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding:50px;
+}
+
+/* Espacé lié à la page recettes  */
+#recettes {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.recettes {
+    width: 31%;
+    height: 400px;
+    background-color: #EEEEEE;
+    border: 1px solid black;
+    margin : 10px;
+    padding: 0;
+    text-align: center;
+    display: inline-block;
+
+    /* Centrer le background  */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.recettes h3 {
+    border-left: 5px solid;
+    border-right: 5px solid;
+    border-bottom: 5px solid;
+    background-color: #EEEEEE;
+
+}
+
+.recettes li {
+    list-style-type: none;
 }

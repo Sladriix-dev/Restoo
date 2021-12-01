@@ -1,6 +1,7 @@
 <?php
 
 namespace App\User;
+use \Pdo;
 
     class User {
 
@@ -22,19 +23,18 @@ namespace App\User;
             $this->cp = $cp;
             $this->telephone = $telephone;
             $this->genre = $genre;
-            $this->db = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABSE);  
+            $this->db = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);    
         }
 
             // destructor  
             function __destruct() {  
             }  
             public function inscriptionUtilisateur(){  
-    
-                    $password = md5($this->password);  
-                    $query = "INSERT INTO utilisateurs(util_nom, util_prénom, util_email, util_password, util_adresse, util_cp, util_telephone, util_genre) VALUES('".$this->nom."','".$this->prenom."','".$this->email."','".$password."','".$this->adresse."',$this->cp,'".$this->telephone."','".$this->genre."')";
-                    $this->db->query($query);
-                    $qr = mysqli_query($this->db, $query);  
-                    var_dump($query);
+                $password = md5($this->password);  
+                $query = "INSERT INTO utilisateurs(util_nom, util_prénom, util_email, util_password, util_adresse, util_cp, util_telephone, util_genre) VALUES('".$this->nom."','".$this->prenom."','".$this->email."','".$password."','".$this->adresse."',$this->cp,'".$this->telephone."','".$this->genre."')";
+                $this->db->query($query);
+                $qr = mysqli_query($this->db, $query);  
+                var_dump($query);
                 return true;
             }  
     
@@ -42,6 +42,7 @@ namespace App\User;
                 $qr = $this->db->query("SELECT * FROM utilisateurs WHERE util_email = '".$email."'");  
                 echo $row = $qr->num_rows;   
                 if($row > 0){  
+                    
                     return true;  
                 } else {  
                     return false;  
