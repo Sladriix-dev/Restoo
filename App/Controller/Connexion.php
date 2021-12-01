@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Login;
+namespace App\Controller;
 use \Pdo;
 
     class Connexion {

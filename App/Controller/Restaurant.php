@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Restaurant;
+namespace App\Controller;
 
     class Restaurant {
 

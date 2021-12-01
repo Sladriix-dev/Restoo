@@ -2,7 +2,7 @@
 
 require '../header.php';
 
-use App\Login\Connexion;
+use App\Controller\Connexion;
 require ROOT."/vendor/autoload.php";
 
 // require ROOT. "../vendor/autoload.php";

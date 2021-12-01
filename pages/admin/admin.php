@@ -1,8 +1,8 @@
 <?php
 include "../header.php";
 
-use App\Recettes\Recettes;
-use App\User\Admin;
+use App\Controller\Recettes;
+use App\Controller\Admin;
 
 $rec = new Recettes();
 $admin = new Admin();
@@ -27,35 +27,35 @@ if (isset($_SESSION['util_isAdmin'])) {
     <h1>Bienvenue sur l'espace admnistration. </h1>
         <nav>
             <ul>
-
                 <a href="../recettes/recettes.php">Liste des recettes</a>
-
+                <table id="recettes_list" class="display">
+                        <thead>
+                            <tr>
+                                <th>Plat</th>
+                            </tr>
+                        </thead>
+                    <tbody>
                 <?php foreach($recs as $recette): ?>
-                
+                    <tr><td><h3><?= $recette->rec_nom ?></h3></td></tr>
                 <!-- On place l'image en background de la recette -->
-                <ul class="recettes" style='background-image: url("../../uploads/<?= $recette->rec_image ?>")'>
-                    <h3><?= $recette->rec_nom ?></h3>
-                    <button>Ajouter ce plat</button>
-                </ul>
-            
                 <?php endforeach; ?>
+                    </tbody>
+                </table>
 
                 <?php 
-
-            
-
                 echo '<a href="../connexion/connexion.php"><button>Ajouter une recette</button></a>';
-
                 echo '<a href="../inscription/inscription.php">Supprimer la recette</a>';
                 echo '<a href="../inscription/inscription.php">Rendre ce plat disponible</a>';
-
-                
                 ?>
-
             </ul>
         </nav>
 </section>
 
+<script>
+    $(document).ready( function () {
+        $('#recettes_list').DataTable();
+    } );
+</script>
 <?php
 include "../footer.php"; 
 ?>

@@ -2,7 +2,7 @@
 
 include "../header.php";
 
-use App\Recettes\Recettes;
+use App\Controller\Recettes;
 
 $rec = new Recettes();
 // Récupération des recettes via la classe

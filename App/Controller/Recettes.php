@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Recettes;
+namespace App\Controller;
 use \PDO;
 
     class Recettes {
