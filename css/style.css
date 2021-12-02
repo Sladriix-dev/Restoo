@@ -19,19 +19,16 @@ section {
     min-height: 80vh;
 }
 
-.header {
-    width: 100vw;
-    z-index: 1000;
-    height: 80px;
+.header-display {
     display: flex;
-    position: fixed;
-    font-size: 0.8em;
-    margin-top: -8px;
-    margin-left: -8px;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(90deg, black, 95%, #292C6D);
 }
+
+.header-display img {
+    width: 10%;
+}
+
 .header a {
     color: white;
     padding: 10px 30px;
@@ -39,7 +36,7 @@ section {
 }
 .header a:hover {
     transition: 0.2s color;
-    color: grey;
+    color: rgba(255, 195, 18, 1);
 }
 
 /* Footer */
@@ -153,6 +150,8 @@ footer p {
     font-family: 'Outfit', sans-serif;
     /* text-shadow: 10px 7px 10px white; */
 }
+
+
 
 .certifications {
     width: auto;
@@ -356,7 +355,7 @@ section {
 
 .header {
     width: 101%;
-    height: 70px;
+    height: 100px;
     display: flex;
     position: fixed;
     font-size: 0.8em;
@@ -364,17 +363,20 @@ section {
     margin-left: -8px;
     align-items: center;
     justify-content: space-between;
-    background: linear-gradient(90deg, black, 95%, #ff4d12);
+    background: rgb(0,0,0);
+    background: linear-gradient(32deg, rgba(0,0,0,1) 85%, rgba(255,195,18,1) 95%);
     z-index: 1;
 }
+
 .header a {
     color: white;
     padding: 10px 30px;
     text-decoration: none;
 }
 .header a:hover {
+    font-weight: bold;
     transition: 0.2s color;
-    color: grey;
+    color: rgba(255,195,18,1);
 }
 
 footer {
@@ -383,7 +385,7 @@ footer {
     color: white;
     display: flex;
     background: rgb(255,77,18);
-    background: linear-gradient(32deg, rgba(255,77,18,1) 0%, rgba(0,0,0,1) 14%, rgba(0,0,0,1) 85%, rgba(255,195,18,1) 93%); 
+    background: linear-gradient(32deg, rgba(255,77,18,1) 0%, rgba(0,0,0,1) 16%); 
 }
 
 footer div {
@@ -683,6 +685,16 @@ footer div {
     /* text-shadow: 10px 7px 10px white; */
 }
 
+.titre-restoo {
+    display: flex;
+    font-size: 35px;
+    margin-top: -100px;
+    padding-bottom: 50px;
+    justify-content: center;
+    color: rgb(255, 195, 18, 1);
+    font-family: 'Yellowtail', cursive;
+}
+
 .certifications {
     width: auto;
     display: flex;
@@ -819,6 +831,7 @@ footer div {
     flex-direction: column;
     border: 1px solid rgb(255, 195, 18, 1);
     font-family: 'M PLUS 2', sans-serif;
+    margin-top: 220px;
 }
 
 .titre-plats {

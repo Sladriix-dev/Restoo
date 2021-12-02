@@ -89,7 +89,7 @@
 						<input type="password" class="form-control" name="confirmPassword" placeholder="Confirmez votre mot de passe" required="required">
 					</div>
 					<div class="form-group">
-						<input type="submit" value="register" class="btn float-right login_btn">
+						<input type="submit" value="Register" class="btn float-right login_btn">
 					</div>
 				</form>
 			</div>

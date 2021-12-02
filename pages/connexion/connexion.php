@@ -46,7 +46,7 @@ if (isset($_SESSION['alert'])) {
 						<input type="checkbox">Se souvenir de moi
 					</div>
 					<div class="form-group">
-						<input type="submit" value="login" class="btn float-right login_btn" >
+						<input type="submit" value="Login" class="btn float-right login_btn" >
 					</div>
 				</form>
 			</div>

@@ -4,18 +4,23 @@ include "../header.php";
 require_once "../../vendor/autoload.php";
 //include_once "../../App/Entite/User.php";
 //include_once "../../App/Controller/UserProfile.php";
-use App\Controller\UserProfile;
+use App\Controller\UserProfileController;
+
 
 
 //Titre : Affichage du nom de l'utilisateur
 //$nomUserActuel = UserProfile::getLoggedUserNom();
 
 ?>
- <link href="../../css/profil.css" rel="stylesheet">
+<div class="pageProfil">
+ <link href="../../css/profil_style.css" rel="stylesheet">
+
+ </br></br>
+<div class="TitreProfil">
 <?php
 if (isset($_SESSION['util_nom']))
 {
-        $UserProfile = new UserProfile();
+        $UserProfile = new UserProfileController();
         $PrénomUserActuel = $UserProfile->getLoggedUserPrénom();
         $Affichage = "<h2>Profil de <b>".$PrénomUserActuel." ".$_SESSION['util_nom']."</h2>";
 
@@ -24,6 +29,7 @@ echo "<center>".$Affichage."</center>";
 
 
 ?>
+</div>
 <center>
 </br></br>
 
@@ -32,26 +38,26 @@ echo "<center>".$Affichage."</center>";
 	<tr>
 	<td>
 		
-<div Class="OngletsProfil">
+
         <form id="Onglet1" action="profil.php?p=Notes" method="post">
-            <input type="submit" name = "" value="Notes" >
+            <input class="OngletsIndividualButton" type="submit" name = "" value="Notes" >
         </form>
 	</td>
 	<td>
         <form id="Onglet2" action="profil.php?p=Commandes" method="post">
-            <input type="submit" name = "" value="Commandes" >
+            <input class="OngletsIndividualButton" type="submit" name = "" value="Commandes" >
         </form>
 	</td>
 	<td>
         <form id="Onglet3" action="profil.php?p=Options" method="post">
-            <input type="submit" name = "" value="Options" >
+            <input class="OngletsIndividualButton" type="submit" name = "" value="Options" >
         </form>
 	</td>
 </tr>
 </tbody>
 </table>
 
-</div>
+
 </center>
 
 </br></br>
@@ -95,5 +101,6 @@ else
 
 ?>
 <br /><br /><br />
+</div>
 
 <?php include_once "../footer.php" ?>

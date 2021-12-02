@@ -8,12 +8,13 @@
 
 <div class="NotesListe">
 <center>
-<h1>Options utilisateur</h1><br/>
+<h1>Options utilisateur :</h1><br/>
 <?php
 //Reset le message de validation des modifs d'options
-if ($_SESSION['mdpChange'] == true)
+if (isset ($_SESSION['MessageOptions']))
 {
-    echo "<b>Vos modifications ont été enregistrées.</b><br/>";
+    echo $_SESSION['MessageOptions'];
+    //echo "<b>Vos modifications ont été enregistrées.</b><br/>";
 }
     ?>
 
@@ -31,8 +32,9 @@ if ($_SESSION['mdpChange'] == true)
                 <input type="password" id="newPassword" name='newPassword' required="required">
             </p>
 
+            <br/>
             <p class="login button">
-                <input type="submit" name="login" value="Confirmer"/>
+                <input type="submit" class="OngletsIndividualButton" name="login" value="Confirmer"/>
             </p>
 
         </form>
@@ -41,9 +43,9 @@ if ($_SESSION['mdpChange'] == true)
         <form name="StayLogged" method="post" action="ChangeRéglages-validation.php">
             <input type="checkbox" id="StayLogged" name='StayLogged' >
             <label for="StayLogged" type="checkbox">Rester connecté à mon compte</label>
-                <br/>
+                <br/><br/>
         
-            <input type="submit" name="login" value="Valider réglages"/>
+            <input type="submit" class="OngletsIndividualButton" name="login" value="Valider réglages"/>
         </form>
         
 <br/><br/>

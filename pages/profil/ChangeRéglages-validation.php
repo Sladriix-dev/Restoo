@@ -5,15 +5,15 @@ include "../header.php";
 //require_once "../../../vendor/autoload.php";
 require ROOT."/vendor/autoload.php";
 //include_once "../../App/Entite/User.php";
-//include_once "../../App/Controller/UserProfile.php";
-use App\Controller\UserProfile;
+//include_once "../../App/Controller/UserProfileController.php";
+use App\Controller\UserProfileController;
 
-$_SESSION['mdpChange'] = false;
+$_SESSION['MessageOptions'] = "";
 
 if($_POST["StayLogged"])
 {  
     $StayLogged = $_POST["StayLogged"];
-    $fonction = new UserProfile();
+    $fonction = new UserProfileController();
     $fonction->ChangeRéglages($StayLogged);     
     echo $StayLogged;
 }

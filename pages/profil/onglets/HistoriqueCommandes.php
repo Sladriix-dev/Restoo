@@ -1,24 +1,35 @@
 
 <div class="NotesListe">
     
-    <h2>Historique des commandes :</h2>
+<center><h2>Historique des commandes :</h2></center>
 
 <?php
 
 //Reset le message de validation des modifs d'options
-$_SESSION['mdpChange'] = false;
+$_SESSION['MessageOptions'] = "";
 
     // ------ Commandes -------
     $ListeNotes = $UserProfile->getLoggedUserCommandes();
 
     $IsEmpty = false;
 
+    ?>
+    <table align=center class=ProfilTable>
+        <tbody>
+    <?php
+
     foreach ($ListeNotes as $ligne)
     {
         $IsEmpty = true;
-        echo "<b>Commande #".$ligne->com_id."</b> : ".$ligne->rec_nom." <i>(".$ligne->com_status.")</i> "; 
+        echo "<tr><td><b>Commande #".$ligne->com_id."</b> : ".$ligne->rec_nom." <i>(".$ligne->com_status.")</i></td></tr> "; 
         echo "</br>";
     }
+
+    ?>
+        </tbody>
+    </table>
+
+        <?php
 
     if ($IsEmpty == false)
     {
@@ -32,7 +43,7 @@ $_SESSION['mdpChange'] = false;
 <br/>
 
 <div class="NotesListe">
-    <h2>Historique des paiements :</h2>
+    <center><h2>Historique des paiements :</h2></center>
     <?php
 $_SESSION['mdpStatus'] = "TestCommandes";
     // ------- Factures ------
@@ -40,13 +51,24 @@ $_SESSION['mdpStatus'] = "TestCommandes";
 
     $IsEmpty = false;
 
+    ?>
+    <table align=center class=ProfilTable>
+        <tbody>
+    <?php
+
     foreach ($ListeNotes as $ligne)
     {
         $IsEmpty = true;
-        echo "<b>Commande $nombreLignes (#".$ligne->paie_id.")</b> :  <i>(".$ligne->com_status.")</i> "; 
+        echo "<tr><td><b>Commande $nombreLignes (#".$ligne->paie_id.")</b> :  <i>(".$ligne->com_status.")</i></td></tr> "; 
         echo "</br>";
         
     }
+
+    ?>
+        </tbody>
+    </table>
+
+        <?php
 
     if ($IsEmpty == false)
     {
