@@ -7,7 +7,6 @@ require ROOT."/vendor/autoload.php";
 
 // require ROOT. "../vendor/autoload.php";
 
-if($_POST['login']){  
 
     //Récupération des données issues de la page inscription
     $email = $_POST['email']; 
@@ -18,7 +17,7 @@ if($_POST['login']){
     $connexion = $login->connexion($email, $password);  
     
     if($connexion){  
-        $_SESSION['alert'] = "<div class='alert'>Connexion réussi !</div>";
+        $_SESSION['alert'] = "<div class='alert'>Connexion réussie !</div>";
         echo '<script type="text/javascript">
         window.location = "../../pages/accueil/index.php"
         </script>';       
@@ -31,6 +30,6 @@ if($_POST['login']){
     }
             
     
-}
+
 
 ?>

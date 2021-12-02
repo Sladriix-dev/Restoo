@@ -28,6 +28,7 @@ use \PDO;
                 $qr = $this->db->query("SELECT * FROM recettes WHERE rec_id =".$idRecettes);
                 $qr->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
                 $recettes = $qr->fetchAll();
+
                 return $recettes;
             }
     

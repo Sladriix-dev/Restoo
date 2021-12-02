@@ -12,8 +12,13 @@ $commandes = $commande->listAllCartCommand($_SESSION['util_id']);
 <section>
 
         <?php foreach($commandes as $commande): ?>
-            <input name="description" value="<?= $commande->commande_id ?>" required>
+            <p> <?= $commande->rec_nom ?> </p>
+            <p> <?= $commande->rec_nom ?> </p>
         <?php endforeach; ?>
+
+        <input type="submit">Payer</input>
+        <input type="submit">Vider le panier</input>
+
 
 </section>
 <?php include_once "../footer.php" ?>
