@@ -90,7 +90,7 @@ switch ($motcle)
 }
 else
 {
-	echo "<h3>Connectez-vous pour accéder à votre profil<h3>";
+	echo "<center><h3>Connectez-vous pour accéder à votre profil<h3></center>";
 }
 
 ?>

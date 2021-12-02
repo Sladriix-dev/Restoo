@@ -10,13 +10,12 @@ use App\Controller\UserProfile;
 
 $_SESSION['mdpChange'] = false;
 
-if($_POST["password"])
+if($_POST["StayLogged"])
 {  
-    $oldPassword = $_POST["password"]; 
-    $newPassword = $_POST["newPassword"];  
-
-    $requete = new UserProfile();
-    $process = $requete->ChangePassword($oldPassword, $newPassword);     
+    $StayLogged = $_POST["StayLogged"];
+    $fonction = new UserProfile();
+    $fonction->ChangeRéglages($StayLogged);     
+    echo $StayLogged;
 }
 else echo "Opération erronnée.";
 

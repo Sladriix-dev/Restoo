@@ -109,7 +109,7 @@ Class UserProfile
      {
              $idUser = $_SESSION['util_id'];
  
-                 $selection="SELECT paie_id, paie_status, _user_id, _com_id
+                 $selection="SELECT paie_id, paie_statut, _user_id, _com_id
                  FROM paiement
                  JOIN utilisateurs on utilisateurs.util_id = paiement._user_id
                 
@@ -156,7 +156,7 @@ Class UserProfile
             $cryptedPwd = md5($password);
             $selection="SELECT * FROM utilisateurs WHERE util_email = '".$mail."' AND util_password = '".md5($password)."'";
             
-echo $selection;
+
 
             $execution = $this->db->query($selection);
             $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
@@ -171,11 +171,25 @@ echo $selection;
 
                 $execution = $this->db->query($selection);
  
+                $_SESSION['mdpChange'] = true;
 
                 return true;
             }
             return false;
     }
 
+
+    public function ChangeRéglages(bool $StayLogged)
+    {
+            if ($StayLogged == true)   
+            {  
+                $_SESSION['StayLogged'] == true;
+            }
+            else
+            {
+                $_SESSION['StayLogged'] == false;
+            }
+            $_SESSION['mdpChange'] = true;
+    }
 
 }
