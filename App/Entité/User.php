@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Entite;
+namespace App\Entité;
 use \Pdo;
 
     class User {
@@ -31,21 +31,25 @@ use \Pdo;
             }  
             public function inscriptionUtilisateur(){  
                 $password = md5($this->password);  
-                $query = "INSERT INTO utilisateurs(util_nom, util_prénom, util_email, util_password, util_adresse, util_cp, util_telephone, util_genre) VALUES('".$this->nom."','".$this->prenom."','".$this->email."','".$password."','".$this->adresse."',$this->cp,'".$this->telephone."','".$this->genre."')";
-                $this->db->query($query);
-                $qr = mysqli_query($this->db, $query);  
-                var_dump($query);
+                $qr = "
+                INSERT INTO utilisateurs(util_nom, util_prénom, util_email, util_password, util_adresse, util_cp, util_telephone, util_genre) 
+                VALUES('".$this->nom."','".$this->prenom."','".$this->email."','".$password."','".$this->adresse."',$this->cp,'".$this->telephone."','".$this->genre."')"; 
+                $this->db->exec($qr);
+                var_dump($qr);
+
+                die();
                 return true;
             }  
     
             public function userExist($email){  
-                $qr = $this->db->query("SELECT * FROM utilisateurs WHERE util_email = '".$email."'");  
-                echo $row = $qr->num_rows;   
-                if($row > 0){  
-                    
-                    return true;  
-                } else {  
+                $qr = $this->db->query("SELECT * FROM utilisateurs WHERE util_email = '".$email."'");
+                $qr->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
+                $result = $qr->fetchAll();
+                var_dump($result);  
+                if(empty($result)){         
                     return false;  
+                } else {  
+                    return true;
                 }  
             }  
 

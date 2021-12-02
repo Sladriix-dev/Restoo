@@ -12,7 +12,6 @@ require ROOT."/vendor/autoload.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
     <!-- Insertion de Jquery et de Datatables -->
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -21,8 +20,9 @@ require ROOT."/vendor/autoload.php";
     </script>
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 
-    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-    <link href="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.data"></script>
 
     <!-- Insertion des liens de styles et de fonts -->
     <link href="../../css/style.css" rel="stylesheet">
@@ -47,6 +47,8 @@ require ROOT."/vendor/autoload.php";
                     }
                     echo '<a href="">Bienvenue, '.$_SESSION['util_nom'].'</a>';
                     echo '<a href="../deconnexion/deconnexion.php">Déconnexion</a>';
+                    echo '<a href="../panier/panier.php"><img width="20" height="20" src="../../asset/cart.png"></a>';
+
                 } 
 
                 else {

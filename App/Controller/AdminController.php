@@ -3,7 +3,7 @@
 namespace App\Controller;
 use \Pdo;
 
-    class Admin  {
+    class AdminController  {
 
         public function __construct(){
             $this->db = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);    

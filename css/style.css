@@ -33,7 +33,7 @@ section {
 }
 .header a {
     color: white;
-    padding: 10px 100px;
+    padding: 10px 30px;
     text-decoration: none;
 }
 .header a:hover {
@@ -89,4 +89,226 @@ footer div {
 
 .recettes li {
     list-style-type: none;
+}
+
+/* Style lié à la partie admin */
+
+#recettes_list {
+    text-align: center;
+}
+
+/* Css de la page index */
+
+.alert {
+    height: 20px;
+    background-color: grey;
+    color: red;
+}
+
+.container {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.bordures {
+    width: auto;
+    opacity: 0.8;
+    display: flex;
+    padding-top: 150px;
+    padding-left: 50px;
+    background: black;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    flex-direction: column;
+    border: 2px solid white;
+}
+
+.titre {
+    display: flex;
+    font-size: 35px;
+    margin-top: -100px;
+    padding-bottom: 50px;
+    justify-content: center;
+    color: rgb(255, 195, 18, 1);
+    font-family: 'Outfit', sans-serif;
+    /* text-shadow: 10px 7px 10px white; */
+}
+
+.certifications {
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cercle {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    border-radius: 50%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(255, 195, 18, 1);
+    transition: 0.2s box-shadow;
+
+}
+
+.cercle:hover {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    font-weight: bold;
+    border-radius: 50%;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background: rgb(255, 195, 18, 1);
+    box-shadow: 10px 5px 15px #ff4d12;
+    transition: 0.2s box-shadow;
+}
+
+.cercle img {
+    width: 30px;
+}
+
+.texte-cercle {
+    color: black;
+    font-size: 17px;
+    padding-top: 15px;
+    text-align: center;
+    font-family: 'Yellowtail', cursive;
+}
+
+.barre {
+    height: 2px;
+    width: 300px;
+    margin: auto;
+    margin-top: 35px;
+    margin-bottom: 50px;
+    background-color: #ff4d12;
+}
+
+.barre-cercle {
+    width: 75%;
+    height: 2px;
+    margin-top: 15px;
+    background-color: #ff4d12;
+}
+
+.presentation {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: 'M PLUS 2', sans-serif;
+}
+
+.image-bg {
+    background: url("../asset/LoginBackground.jpg") no-repeat fixed;
+    background-size: cover;
+}
+
+.container-plats {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-evenly;
+    background: black;
+}
+
+.photo-plats {
+    width: 50%;
+    display: flex;
+    padding-top: 3px;
+    padding-left: 3px;
+    background: black;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    flex-direction: column;
+    border: 1px solid rgb(255, 195, 18, 1);
+}
+
+.texte-plats {
+    width: 50%;
+    /* opacity: 0.7; */
+    display: flex;
+    padding-top: 3px;
+    padding-left: 3px;
+    background: black;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    flex-direction: column;
+    border: 1px solid rgb(255, 195, 18, 1);
+    font-family: 'M PLUS 2', sans-serif;
+
+}
+
+.titre-plats {
+    display: flex;
+    font-size: 30px;
+    padding-top: 30px;
+    justify-content: center;
+    color: rgb(255, 195, 18, 1);
+    font-family: 'Yellowtail', cursive;
+    text-shadow: 10px 7px 10px white;
+}
+
+.barre-plats {
+    height: 2px;
+    width: 100px;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 40px;
+    background-color: #ff4d12;
+}
+
+.description-plats {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 15px;
+    font-family: 'Outfit', sans-serif;
+}
+
+.presentation-plats {
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 35px;
+    font-family: 'M PLUS 2', sans-serif;
+}
+
+.bouton-commander {
+    width: 30%;
+    margin: auto;
+    padding: 10px;
+    color: white;
+    border: black;
+    font-size: 1rem;
+    border-radius: 15px;
+    margin-bottom: 50px;
+    /* box-shadow: 0px 0px 10px white; */
+    background-image: linear-gradient(90deg, rgb(255, 195, 18, 1) 15%, #ff4d12);
+}
+
+.bouton-commander:hover {
+    font-weight: bold;
+    box-shadow: 0px 0px 10px white;
+    background-image: linear-gradient(90deg, rgb(255, 195, 18, 1) 15%, #ff4d12);
+}
+
+.far {
+    margin-top: 10px;
+    color: rgb(255, 195, 18, 1);
+}
+
+.etoiles {
+    display: flex;
+    margin-top: -10px;
+    padding-bottom: 15px;
+    justify-content: center;
 }

@@ -1,6 +1,9 @@
 <?php
 namespace Core\Database;
+
+use App\Controller\ErrorController;
 use PDO;
+use PDOException;
 
 class Database {
 
@@ -12,21 +15,38 @@ class Database {
      *
      * @var PDO
      */
-    private $pdo;
+    protected $pdo;
 
     /**
      * Génère la connexion à la BDD
      */
     public function __construct()
     {
-        include_once ROOT."/config.php";
-        $this->pdo = new \PDO(
-            "'mysql:host=".DB_HOST.";dbname=".DB_DATABSE."',".DB_USER, DB_PASSWORD,
-            [
-                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
-            ]
-        );
-        $this->getPDO();
+        try {
+            include ROOT."/Config/config.php";
+            // Exemple: 
+            // $configDb = [
+            //     "host" => "localhost",
+            //     "dbname" => "poo_project",
+            //     "user" => "root",
+            //     "pwd" => "",
+            // ];
+            $this->pdo = new \PDO(
+                "mysql:host=".DB_HOST.";dbname=".DB_DATABSE, 
+                DB_USER, 
+                DB_PASSWORD,
+                [
+                    \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+                ]
+            );
+            if (is_null($this->pdo)) {
+                throw new PDOException("La connexion ne s'est pas faite, Vérifiez vos identifiants", 500);
+            }
+            
+        } catch (\PDOException $e) {
+            (new ErrorController)->PdoError($e->getMessage());
+            die();
+        }
     }
 
     /**

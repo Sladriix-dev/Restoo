@@ -3,8 +3,8 @@
 namespace App\Controller;
 use \Pdo;
 
-    class Connexion {
-
+    class ConnexionController {
+        
         public function __construct() {
         
             $this->db = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);    
