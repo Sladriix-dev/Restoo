@@ -1,0 +1,45 @@
+.NotesListe
+{
+    background-color: #d3e2e27a;
+	border:solid 2px  #ceddde;
+	margin-left: auto ; /*centrer les elements avec margin : auto */
+	margin-right: auto;
+    margin-top: 5;
+    
+	border-radius: 7px;
+	width:50% ;
+	box-shadow :-3px 7px 16px #ced6de;
+	opacity: 0.75;
+}
+
+.NotesListe:hover
+{
+    background-color: #d3e2e27a;
+	border:solid 2px  #ceddde;
+	margin-left: auto ; /*centrer les elements avec margin : auto */
+	margin-right: auto;
+    margin-top: 5;
+	border-radius: 7px;
+	width:50% ;
+	box-shadow :-3px 7px 16px #ced6de;
+	opacity: 1;
+}
+
+.OngletsProfil
+{
+    margin : auto;
+	display:inline-block;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: auto ; /*centrer les elements avec margin : auto */
+	margin-right: auto;
+	border-radius: 7px;
+	width:50% ;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.OngletsButtons
+{
+    border-spacing : 50px 0;
+}
