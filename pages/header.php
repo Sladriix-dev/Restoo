@@ -48,7 +48,7 @@ require ROOT."/vendor/autoload.php";
                 //Si l'utilisateur n'est pas connecté, il peut s'inscrire ou se déconnecter
                 if (isset($_SESSION['util_nom'])) {
                     if (isset($_SESSION['util_isAdmin'])) {
-                        echo '<a href="../admin/admin.php">Admnistration</a>';
+                        echo '<a href="../admin/admin.php">Admninistration</a>';
                     }
                     echo '<a href="../profil/profil.php">Bienvenue, '.$_SESSION['util_nom'].'</a>';
                     echo '<a href="../deconnexion/deconnexion.php">Déconnexion</a>';
