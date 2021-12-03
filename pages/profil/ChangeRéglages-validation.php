@@ -5,16 +5,17 @@ include "../header.php";
 //require_once "../../../vendor/autoload.php";
 require ROOT."/vendor/autoload.php";
 //include_once "../../App/Entite/User.php";
-//include_once "../../App/Controller/UserProfile.php";
+//include_once "../../App/Controller/UserProfileController.php";
 use App\Controller\UserProfileController;
 
-if($_POST["password"])
-{  
-    $oldPassword = $_POST["password"]; 
-    $newPassword = $_POST["newPassword"];  
+$_SESSION['MessageOptions'] = "";
 
-    $requete = new UserProfileController();
-    $process = $requete->ChangePassword($oldPassword, $newPassword);     
+if($_POST["StayLogged"])
+{  
+    $StayLogged = $_POST["StayLogged"];
+    $fonction = new UserProfileController();
+    $fonction->ChangeRéglages($StayLogged);     
+    echo $StayLogged;
 }
 else echo "Opération erronnée.";
 
