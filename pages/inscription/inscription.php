@@ -62,7 +62,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-map-marked-alt"></i></span>
 						</div>
-						<input type="text" class="form-control" name="cp" placeholder="Code postale">
+						<input type="text" class="form-control" minlength="5" name="cp" placeholder="Code postale">
 					</div>
                     <div class="input-group form-group">
 						<div class="input-group-prepend">
@@ -74,7 +74,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-phone"></i></span>
 						</div>
-						<input type="text" class="form-control" name="telephone" placeholder="Téléphone">
+						<input type="text" class="form-control" minlength="10" name="telephone" placeholder="Téléphone">
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">

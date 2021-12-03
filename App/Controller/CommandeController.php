@@ -55,12 +55,20 @@ use \Pdo;
         }
 
         //Redirige l'utilisateur vers la page de paiement
-        public function confirmPaiement(){
+        public function validationPaiement($userId, $comId, $cb, $fin, $cvc){
 
-                echo '<script type="text/javascript">
-                window.location = "panier_validation.php"
-                </script>'; 
-
+            $qr = "INSERT INTO paiement(paie_statut, paie_cb, _user_id, _com_id, paie_cb_fin, paie_cb_cvc) VALUES ('termine','".$cb."',".$userId.",'".$comId."','".$fin."','".$cvc."')";
+            $this->db->exec($qr);
+            $qrDel = 
+            "DELETE FROM commande 
+            WHERE _user_id = ".$userId." AND com_status = 'panier'";
+            $this->db->exec($qrDel);
+                   var_dump($qr);
+                   var_dump($qrDel);
+            $_SESSION['alert'] = "<div class='alert'>Votre commande a été validé. Vous devrez la recevoir d'ici peu !</div>";
+            echo '<script type="text/javascript">
+            window.location = "panier.php"
+            </script>'; 
             
         }
 
