@@ -27,7 +27,7 @@ if (isset($_POST['delete'])) {
 }
 
 ?>
-<section class="admin">
+<section class="admin" style="margin-top: 70px;">
     <?php 
 
      //Si l'on a envoyé le formulaire de modification

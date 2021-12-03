@@ -5,7 +5,7 @@
 namespace App\Controller;
 use \Pdo;
 
-Class UserProfile 
+Class UserProfileController 
 {
 
     //----------------------------------------------------   
@@ -83,14 +83,13 @@ Class UserProfile
     public function getLoggedUserCommandes()
     {
             $idUser = $_SESSION['util_id'];
-
-                $selection="SELECT com_id, com_status, recettes.rec_nom
-                FROM commande
-                JOIN utilisateurs on utilisateurs.util_id = commande._user_id
-                JOIN recettes on recettes.rec_id = commande._rec_id
-                WHERE utilisateurs.util_id=$idUser
-                ORDER BY com_id ASC";
-            
+            $selection="
+            SELECT paie_id, paie_statut, paie_cb, paie_cb_fin
+            FROM paiement
+            JOIN utilisateurs on utilisateurs.util_id = paiement._user_id
+            WHERE utilisateurs.util_id=$idUser AND paie_statut='termine'
+            ORDER BY paie_id ASC"
+            ;            
 
             // $chaine = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);
  
@@ -109,7 +108,7 @@ Class UserProfile
      {
              $idUser = $_SESSION['util_id'];
  
-                 $selection="SELECT paie_id, paie_status, _user_id, _com_id
+                 $selection="SELECT paie_id, paie_statut, _user_id, _com_id
                  FROM paiement
                  JOIN utilisateurs on utilisateurs.util_id = paiement._user_id
                 
@@ -154,22 +153,42 @@ Class UserProfile
        // echo $mail;
             $idUser = $_SESSION['util_id'];
             $cryptedPwd = md5($password);
-            $selection="SELECT * FROM utilisateurs WHERE util_email = '".$mail."' AND util_password = '".md5($password)."'";
+            $selection="SELECT COUNT(util_id) FROM utilisateurs WHERE util_email = '".$mail."' AND util_password = '".md5($password)."'";
+            
+
+
             $execution = $this->db->query($selection);
             $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
-            $retour = $execution->fetchAll();
+            $retour = $execution->fetchColumn();
 
-            if ($retour > 1)   
+            if ($retour >= 1)   
             {  
+                echo "true";
                 $selection="UPDATE utilisateurs
                 set util_password = '".md5($newPassword)."'
                 WHERE util_id = $idUser";
 
                 $execution = $this->db->query($selection);
+ 
+                $_SESSION['MessageOptions'] = "<b>Mot de passe modifié avec succès.</b><br/>";
+
                 return true;
             }
             return false;
     }
 
+
+    public function ChangeRéglages(bool $StayLogged)
+    {
+            if ($StayLogged == true)   
+            {  
+                $_SESSION['StayLogged'] == true;
+            }
+            else
+            {
+                $_SESSION['StayLogged'] == false;
+            }
+            $_SESSION['MessageOptions'] = "<b>Réglages mis à jour.</b><br/>";
+    }
 
 }

@@ -17,7 +17,7 @@ if (!isset($_SESSION['util_isAdmin'])) {
         exit();
 }
 ?>
-<section class="admin">
+<section class="admin" style="margin-top: 70px;">
     <h1>Bienvenue sur l'espace admnistration. </h1>
         <nav>
             <ul>

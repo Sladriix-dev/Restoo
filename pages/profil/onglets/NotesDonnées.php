@@ -7,7 +7,7 @@ use App\Controller\UserProfile;
 ?>
 
 <div class="NotesListe">
-    <h2>Notes de Restaurants :</h2>
+    <h2>Notes de plats :</h2>
 
 
     <?php
