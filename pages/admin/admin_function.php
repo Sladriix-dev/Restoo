@@ -43,6 +43,8 @@ if (isset($_POST['delete'])) {
         $recs = $rec->findByIdRecette($_POST['rec_id']);
 
     ?>
+
+        <!-- Formulaire de modification -->
         <form enctype="multipart/form-data" method="POST" action="">
         <?php foreach($recs as $recette): ?>
             <input name="nom" value="<?= $recette->rec_nom ?>" required>

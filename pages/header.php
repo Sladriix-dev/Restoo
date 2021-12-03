@@ -52,7 +52,7 @@ require ROOT."/vendor/autoload.php";
                     }
                     echo '<a href="../profil/profil.php">Bienvenue, '.$_SESSION['util_nom'].'</a>';
                     echo '<a href="../deconnexion/deconnexion.php">Déconnexion</a>';
-                    echo '<a href="../panier/panier.php"><img width="20" height="20" src="../../asset/cart.png"></a>';
+                    echo '<a href="../panier/panier.php">Panier</a>';
 
                 } 
 

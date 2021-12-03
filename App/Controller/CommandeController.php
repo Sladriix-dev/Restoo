@@ -10,10 +10,11 @@ use \Pdo;
         }
 
         public function listAllCartCommand($userId) {
-            $qr =  $this->db->query("SELECT * FROM commande INNER JOIN recettes on commande._rec_id = recettes.rec_id WHERE _user_id=".$userId." AND com_status='panier'") ;
-            $qr->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
-            $commandes = $qr->fetchAll();
-            return $commandes;
+
+                $qr =  $this->db->query("SELECT * FROM commande INNER JOIN recettes on commande._rec_id = recettes.rec_id WHERE _user_id=".$userId." AND com_status='panier'") ;
+                $qr->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
+                $commandes = $qr->fetchAll();
+                return $commandes;
             
         }
 
@@ -40,18 +41,16 @@ use \Pdo;
         }
 
         public function emptyCart($userId){
-            $qr ="
-            DELETE FROM commande 
-            WHERE _user_id = ".$userId." AND com_status = 'panier'";
-            $this->db->exec($qr);
-            var_dump($qr);
-            $_SESSION['alert'] = "<div class='alert'>Le panier a bien été vidé.</div>";
-            echo '<script type="text/javascript">
-            window.location = "panier.php"
-            </script>'; 
-            return true;
-
-            
+                $qr ="
+                DELETE FROM commande 
+                WHERE _user_id = ".$userId." AND com_status = 'panier'";
+                $this->db->exec($qr);
+                var_dump($qr);
+                $_SESSION['alert'] = "<div class='alert'>Le panier a bien été vidé.</div>";
+                echo '<script type="text/javascript">
+                window.location = "panier.php"
+                </script>'; 
+                return true; 
         }
 
         //Redirige l'utilisateur vers la page de paiement
@@ -59,12 +58,12 @@ use \Pdo;
 
             $qr = "INSERT INTO paiement(paie_statut, paie_cb, _user_id, _com_id, paie_cb_fin, paie_cb_cvc) VALUES ('termine','".$cb."',".$userId.",'".$comId."','".$fin."','".$cvc."')";
             $this->db->exec($qr);
+
+            //On supprime le panier puisque la  commande est validée
             $qrDel = 
             "DELETE FROM commande 
             WHERE _user_id = ".$userId." AND com_status = 'panier'";
             $this->db->exec($qrDel);
-                   var_dump($qr);
-                   var_dump($qrDel);
             $_SESSION['alert'] = "<div class='alert'>Votre commande a été validé. Vous devrez la recevoir d'ici peu !</div>";
             echo '<script type="text/javascript">
             window.location = "panier.php"

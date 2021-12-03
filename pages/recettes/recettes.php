@@ -28,10 +28,9 @@ if (isset($_POST['rec_id'])){
     </form>
 
     <div class="css-slider-wrapper">
-        <input type="radio" name="slider" class="slide-radio1" checked id="slider_1">
 
-        <?php $index = 1; foreach($recs as $recette): ?>
-        <?php $index++; ?>    
+        <?php $index = 0; foreach($recs as $recette): ?>
+        <?php $index++; if ($index ==1) { echo '<input type="radio" name="slider" class="slide-radio1" checked id="slider_1">';} ?>    
             <input type="radio" name="slider" class="slide-radio<?php echo $index; ?>" id="slider_<?php echo $index; ?>">
         <?php endforeach; ?>
 

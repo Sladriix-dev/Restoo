@@ -15,7 +15,7 @@ if (isset($_POST['emptyCart'])) {
 
 ?>
 
-<section style="text-align: center;">
+<section style="text-align: center; margin-top: 70px;">
 
         <?php foreach($commandes as $commande): ?>
             <p> <?= $commande->rec_nom ?>  <?= $commande->rec_prix ?> € </p>
