@@ -22,19 +22,26 @@ use \Pdo;
                 $_SESSION['util_nom'] = $user_data['util_nom'];
                 $_SESSION['util_id'] = $user_data['util_id'];
                 $_SESSION['util_email'] = $user_data['util_email']; 
-                return TRUE;    
+                $_SESSION['alert'] = "<div class='alert'>Connexion réussie !</div>";
+                echo '<script type="text/javascript">
+                window.location = "../../pages/accueil/index.php"
+                </script>';    
             }
 
             else { 
                 $_SESSION['util_nom'] = $user_data['util_nom'];
                 $_SESSION['util_id'] = $user_data['util_id'];
                 $_SESSION['util_email'] = $user_data['util_email'];  
-                return TRUE;  
+                $_SESSION['alert'] = "<div class='alert'>Connexion réussie !</div>";
+                echo '<script type="text/javascript">
+                window.location = "../../pages/accueil/index.php"
+                </script>';   
             }
         }  
         else  
         {  
-            return FALSE;  
+            $_SESSION['alert'] = "<div class='alert'>La connexion à échoué !</div>";
+            echo '<script type="text/javascript">window.location = "connexion.php"</script>'; 
         }  
     }  
 

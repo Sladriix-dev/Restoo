@@ -121,6 +121,7 @@ footer p {
     height: 20px;
     background-color: grey;
     color: red;
+    z-index: 1000;
 }
 
 .container {

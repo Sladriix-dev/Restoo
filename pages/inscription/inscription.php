@@ -43,7 +43,7 @@
   								<label for="homme">Homme</label><br>
 							</div>
 							<div class="femme">
-  								<input type="radio" id="femme" name="gender" value="Femme">
+  								<input type="radio" checked id="femme" name="gender" value="Femme">
   								<label for="femme">Femme</label><br>
 							</div>
 							<div class="others">

@@ -28,17 +28,6 @@ require ROOT."/vendor/autoload.php";
         if(!$email){  
                 echo 'OK';
                 $register = $user->inscriptionUtilisateur();  
-                if($register){  
-                    $_SESSION['alert'] = "<div class='alert'>Inscription réussi !</div>";
-                    // echo '<script type="text/javascript">
-                    // window.location = "../../pages/accueil/index.php"
-                    // </script>'; 
-                }else{  
-                    $_SESSION['alert'] = "<div class='alert'>Connexion réussi !</div>";
-                    echo '<script type="text/javascript">
-                    window.location = "inscription_validation.php"
-                    </script>'; 
-                }
             }
         else {
             echo "<div class='alert'>L'adresse email est déjà existante ' !</div>";  

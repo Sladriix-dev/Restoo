@@ -18,16 +18,50 @@ use \Pdo;
         }
 
         public function addCart($userId, $recId){
-            $qr = "INSERT INTO commande(com_status, _user_id, _rec_id) VALUES ('panier',".$userId.",".$recId.")";
+
+                $qr = $this->db->query("SELECT * FROM commande INNER JOIN recettes on commande._rec_id = recettes.rec_id WHERE _user_id=".$userId." AND com_status='panier'");
+                $qr->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
+                $result = $qr->fetchAll();
+                var_dump($result);  
+                if(empty($result)){     
+                    $qr = "INSERT INTO commande(com_status, _user_id, _rec_id) VALUES ('panier',".$userId.",".$recId.")";
+                    $this->db->exec($qr);
+                    $_SESSION['alert'] = "<div class='alert'>Votre plat a bien été ajouté au panier!</div>";
+                    echo '<script type="text/javascript">
+                    window.location = "../panier/panier.php"
+                    </script>'; 
+
+                } else {  
+                    $_SESSION['alert'] = "<div class='alert'>Vous avez déjà un plat dans votre panier !</div>";
+                    echo '<script type="text/javascript">
+                    window.location = "../panier/panier.php"
+                    </script>'; 
+                }  
+        }
+
+        public function emptyCart($userId){
+            $qr ="
+            DELETE FROM commande 
+            WHERE _user_id = ".$userId." AND com_status = 'panier'";
             $this->db->exec($qr);
             var_dump($qr);
+            $_SESSION['alert'] = "<div class='alert'>Le panier a bien été vidé.</div>";
+            echo '<script type="text/javascript">
+            window.location = "panier.php"
+            </script>'; 
             return true;
 
             
         }
 
-        public function confirmCart(){
+        //Redirige l'utilisateur vers la page de paiement
+        public function confirmPaiement(){
 
+                echo '<script type="text/javascript">
+                window.location = "panier_validation.php"
+                </script>'; 
+
+            
         }
 
     }

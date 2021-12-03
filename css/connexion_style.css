@@ -83,3 +83,8 @@ color: white;
 .links a{
 margin-left: 4px;
 }
+.alert {
+    height: 20px;
+    background-color: grey;
+    color: red;
+}

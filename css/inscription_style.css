@@ -123,3 +123,9 @@ html,body{
     .identifiants-login {
         display: flex;
     }
+    .alert {
+        height: 20px;
+        background-color: grey;
+        color: red;
+    }
+    

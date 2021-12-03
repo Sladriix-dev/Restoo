@@ -1,11 +1,6 @@
 <?php 
 
-include "../header.php"; 
-
-if (isset($_SESSION['alert'])) {
-    echo $_SESSION['alert'];
-    unset($_SESSION['alert']);
-}
+// On vérifie si une alerte a eu lieu suite à une action 
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +20,13 @@ if (isset($_SESSION['alert'])) {
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
-                <img src="../../asset/Logo_Restoo.png" alt="logo du restaurant" class="logo_restoo"/>
+                <img src="../../asset/Logo_Restoo.png" alt="logo du restaurant" class="logo_restoo"/>				
+				<?php
+				if (isset($_SESSION['alert'])) {
+					echo $_SESSION['alert'];
+					unset($_SESSION['alert']);
+				}
+				?>
             </div>
 			<div class="card-body">
 				<form action="connexion_validation.php" method="POST">

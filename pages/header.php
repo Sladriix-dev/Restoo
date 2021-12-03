@@ -45,7 +45,7 @@ require ROOT."/vendor/autoload.php";
                     if (isset($_SESSION['util_isAdmin'])) {
                         echo '<a href="../admin/admin.php">Admnistration</a>';
                     }
-                    echo '<a href="">Bienvenue, '.$_SESSION['util_nom'].'</a>';
+                    echo '<a href="../profil/profil.php">Bienvenue, '.$_SESSION['util_nom'].'</a>';
                     echo '<a href="../deconnexion/deconnexion.php">Déconnexion</a>';
                     echo '<a href="../panier/panier.php"><img width="20" height="20" src="../../asset/cart.png"></a>';
 
@@ -61,4 +61,13 @@ require ROOT."/vendor/autoload.php";
         </nav>
     </header>
     <div id="margin-top">
+
+<?php 
+
+    // On vérifie si une alerte a eu lieu suite à une action 
+    if (isset($_SESSION['alert'])) {
+        echo $_SESSION['alert'];
+        unset($_SESSION['alert']);
+    }
+?>
 

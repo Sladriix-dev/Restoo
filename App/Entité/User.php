@@ -35,10 +35,20 @@ use \Pdo;
                 INSERT INTO utilisateurs(util_nom, util_prénom, util_email, util_password, util_adresse, util_cp, util_telephone, util_genre) 
                 VALUES('".$this->nom."','".$this->prenom."','".$this->email."','".$password."','".$this->adresse."',$this->cp,'".$this->telephone."','".$this->genre."')"; 
                 $this->db->exec($qr);
-                var_dump($qr);
 
-                die();
-                return true;
+                if ($qr) {
+                $_SESSION['alert'] = "<div class='alert'>Inscription réussie !</div>";
+                echo '<script type="text/javascript">
+                window.location = "../../pages/accueil/index.php"
+                </script>'; 
+                }
+
+                else {
+                    $_SESSION['alert'] = "<div class='alert'>L'inscription a échoué !</div>";
+                    echo '<script type="text/javascript">
+                    window.location = "inscription.php"
+                    </script>'; 
+                }
             }  
     
             public function userExist($email){  
@@ -48,8 +58,11 @@ use \Pdo;
                 var_dump($result);  
                 if(empty($result)){         
                     return false;  
-                } else {  
-                    return true;
+                } else { 
+                    $_SESSION['alert'] = "<div class='alert'>Un utilisateur existe déjà avec cet adresse !</div>";
+                    echo '<script type="text/javascript">
+                    window.location = "inscription.php"
+                    </script>';  
                 }  
             }  
 

@@ -1,15 +1,6 @@
 
 <?php include_once "../header.php" ?>
 
-<?php 
-
-if (isset($_SESSION['alert'])) {
-        echo '<div class="alert"><h1>'.$_SESSION['alert'].'</h1></div>';
-        unset ($_SESSION['alert']);
-    }
-    
-?>
-
 <div class="image-bg">
     <div class="container">
         <div class="bordures">
