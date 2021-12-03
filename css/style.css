@@ -111,6 +111,10 @@ footer p {
 
 /* Style lié à la partie admin */
 
+.admin {
+    padding: 30px;
+}
+
 #recettes_list {
     text-align: center;
 }
