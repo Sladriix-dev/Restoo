@@ -252,7 +252,7 @@ footer p {
 .titre-plats {
     display: flex;
     font-size: 30px;
-    padding-top: 30px;
+    padding-top: 11px;
     justify-content: center;
     color: rgb(255, 195, 18, 1);
     font-family: 'Yellowtail', cursive;
@@ -362,6 +362,7 @@ section {
     background: rgb(0,0,0);
     background: linear-gradient(32deg, rgba(0,0,0,1) 85%, rgba(255,195,18,1) 95%);
     z-index: 1;
+    padding-top: 20px;
 }
 
 .header a {
