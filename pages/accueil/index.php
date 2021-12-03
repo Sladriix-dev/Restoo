@@ -13,11 +13,26 @@ if (isset($_SESSION['alert'])) {
 <div class="image-bg">
     <div class="container">
         <div class="bordures">
-            <div class="titre"> RESTOO </div>
+            <div class="etoiles-restoo">
+                <div class="etoiles">
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                </div>
+            <div class="titre-restoo"> RESTOO </div>
+                <div class="etoiles">
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                    <i class="far fa-star" style="color: rgba(255,77,18,1)"></i>
+                </div>
+            </div>
             <div class="presentation">
-                <div>Chez Restoo, nous ne vous proposons que de la qualité. Alors, venez déguster des plats de renoms pour un prix raisonnable.</div>
-                <br><br>
-                <h3>Nos qualités </h3>
+                <div>Adresse mythique de l'IPSSI, le Restoo est une véritable brasserie Parisienne, chaleureuse et vivante.<br /><br />
+                     Ouvert toute la semaine, commandez en quelques clics votre repas du midi ou du soir, livraison à domicile.<br /><br />
+                     Des plats à base d'ingrédients de saison !<br /></div>
+                <br>
             </div>
             <div class="barre"></div>
             <div class="certifications">
@@ -49,13 +64,14 @@ if (isset($_SESSION['alert'])) {
     <div class="texte-plats">
         <div class="titre-plats"> PLAT DU JOUR </div>
         <div class="barre-plats"></div>
-        <div class="description-plats"> NOM DU PLAT </div>
+        <div class="description-plats"> TERRE ET MER DES GOURMETS </div>
         <div class="etoiles">
         <i class="far fa-star"></i>
         <i class="far fa-star"></i>
         <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
         </div>
-        <div class="presentation-plats">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div class="presentation-plats">Quel délicieux mariage que celui de la terre et de la mer. Délicat et parfois étonnant, l'art réside dans le choix des associations. Raffinée pour les jours de fêtes ou préparée pour un usage quotidien, la cuisine terre et mer sait amadouer les palais les plus exigeants.</div>
         <button class="bouton-commander"> Commander </button>
     </div>
 </div>

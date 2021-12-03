@@ -1,32 +1,29 @@
 <?php
-
-
-
 namespace App\Controller;
 use \Pdo;
 
+//S'occupe des requêtes et fonctions des différentes pages du profil
 Class UserProfileController 
 {
 
-    //----------------------------------------------------   
+    //======================= CONSTRUCTEUR =======================   
 
     public function __construct() {
         
         $this->db = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);    
     }
 
-     //----------------------------------------------------
+     //======================= FONCTIONS -----------------------
 
+    //----------------------------------------------------
+    //Retourne le prénom de l'utilisateur dans la BDD, selon 
+    //l'id utilisateur de la session actuelle
     public function getLoggedUserPrénom()
     {
-
             $idUser = $_SESSION['util_id'];
             
             $selection="select util_prénom from utilisateurs where util_id=$idUser";
-            $execution = $this->db->query($selection);
     
-
-
             $execution = $this->db->query($selection);
             $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
             $arrayRetour = $execution->fetchAll();
@@ -35,13 +32,10 @@ Class UserProfileController
             {
                 return $ligne->util_prénom;
             }
-            
-     
-         
     }
 
-     //----------------------------------------------------
 
+    //----------------------------------------------------
     //Retourne une array des notes donnés par l'utilisateur
     //type : 1 = Restaurants, 2 = Recettes
     public function getLoggedUserNotes(int $type)
@@ -77,8 +71,8 @@ Class UserProfileController
         return $retour;
     }
 
-     //----------------------------------------------------
 
+    //----------------------------------------------------
     //Retourne l'historique des commandes de l'utilisateur
     public function getLoggedUserCommandes()
     {
@@ -90,11 +84,6 @@ Class UserProfileController
                 JOIN recettes on recettes.rec_id = commande._rec_id
                 WHERE utilisateurs.util_id=$idUser
                 ORDER BY com_id ASC";
-            
-
-            // $chaine = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);
- 
-           // var_dump($selection);
            
             $execution = $this->db->query($selection);
             $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
@@ -112,13 +101,12 @@ Class UserProfileController
                  $selection="SELECT paie_id, paie_statut, _user_id, _com_id
                  FROM paiement
                  JOIN utilisateurs on utilisateurs.util_id = paiement._user_id
-                
                  WHERE utilisateurs.util_id=$idUser
                  ORDER BY paie_id ASC";
              
-             $execution = $this->db->query($selection);
-             $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
-             $retour = $execution->fetchAll();
+            $execution = $this->db->query($selection);
+            $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
+            $retour = $execution->fetchAll();
             return $retour;
      }
 
@@ -133,11 +121,6 @@ Class UserProfileController
                 $selection="UPDATE commande
                 SET com_status = \"Annulé`\"
                 WHERE com_id = ".$CommandeId;
-            
-
-            // $chaine = new PDO('mysql:host=localhost;dbname=poo_project', DB_USER, DB_PASSWORD);
- 
-           // var_dump($selection);
            
             $execution = $this->db->query($selection);
             $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
@@ -147,31 +130,30 @@ Class UserProfileController
 
      //----------------------------------------------------
 
+    //
     public function ChangePassword(string $password, string $newPassword)
     {
         $mail = $_SESSION['util_email'];
-      //  echo md5($password);
-       // echo $mail;
-            $idUser = $_SESSION['util_id'];
-            $cryptedPwd = md5($password);
-            $selection="SELECT COUNT(util_id) FROM utilisateurs WHERE util_email = '".$mail."' AND util_password = '".md5($password)."'";
+        $idUser = $_SESSION['util_id'];
+        $cryptedPwd = md5($password);
+            $selection="SELECT COUNT(util_id) 
+            FROM utilisateurs 
+            WHERE util_email = '".$mail."' 
+            AND util_password = '".md5($password)."'";
             
+        $execution = $this->db->query($selection);
+        $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
+        $retour = $execution->fetchColumn();
 
-
-            $execution = $this->db->query($selection);
-            $execution->setFetchMode(PDO::FETCH_OBJ); // retourne les valeurs en objet
-            $retour = $execution->fetchColumn();
-
-            if ($retour >= 1)   
-            {  
-                echo "true";
+        if ($retour >= 1)   
+        {  
+            echo "true";
                 $selection="UPDATE utilisateurs
-                set util_password = '".md5($newPassword)."'
+                SET util_password = '".md5($newPassword)."'
                 WHERE util_id = $idUser";
 
-                $execution = $this->db->query($selection);
- 
-                $_SESSION['MessageOptions'] = "<b>Mot de passe modifié avec succès.</b><br/>";
+            $execution = $this->db->query($selection);
+            $_SESSION['MessageOptions'] = "<b>Mot de passe modifié avec succès.</b><br/>";
 
                 return true;
             }

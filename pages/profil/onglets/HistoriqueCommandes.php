@@ -1,19 +1,20 @@
 
-<div class="NotesListe">
-    
-<center><h2>Historique des commandes :</h2></center>
+
+<div class="NotesListe">   
+    <center>
+        <h2>Historique des commandes :</h2>
+    </center>
 
 <?php
 
 //Reset le message de validation des modifs d'options
 $_SESSION['MessageOptions'] = "";
 
-    // ------ Commandes -------
-    $ListeNotes = $UserProfile->getLoggedUserCommandes();
+// ------ Commandes -------
+$ListeNotes = $UserProfile->getLoggedUserCommandes();
+$IsEmpty = false;
 
-    $IsEmpty = false;
-
-    ?>
+?>
     <table align=center class=ProfilTable>
         <tbody>
     <?php
@@ -29,29 +30,31 @@ $_SESSION['MessageOptions'] = "";
         </tbody>
     </table>
 
-        <?php
-
+    <?php
     if ($IsEmpty == false)
     {
         echo "<br/>(Aucune commande effectuée)";
     }
+    ?>
 
-?>
-</br></br>
+    </br></br>
 </div>
 
 <br/>
 
 <div class="NotesListe">
     <center><h2>Historique des paiements :</h2></center>
+
+
     <?php
-$_SESSION['mdpStatus'] = "TestCommandes";
+    $_SESSION['mdpStatus'] = "TestCommandes";
+
     // ------- Factures ------
     $ListeNotes = $UserProfile->getLoggedUserFactures();
-
     $IsEmpty = false;
 
-    ?>
+?>
+    
     <table align=center class=ProfilTable>
         <tbody>
     <?php
@@ -61,19 +64,18 @@ $_SESSION['mdpStatus'] = "TestCommandes";
         $IsEmpty = true;
         echo "<tr><td><b>Commande $nombreLignes (#".$ligne->paie_id.")</b> :  <i>(".$ligne->com_status.")</i></td></tr> "; 
         echo "</br>";
-        
     }
 
     ?>
         </tbody>
     </table>
 
-        <?php
-
+    <?php
     if ($IsEmpty == false)
     {
         echo "<br/>(Aucun paiement effectué)";
     }
     ?>
-</br></br>
+
+    </br></br>
 </div>

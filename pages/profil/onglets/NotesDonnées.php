@@ -1,7 +1,7 @@
+
 <?php 
+
 require_once "../../vendor/autoload.php";
-//include_once "../../App/Entite/User.php";
-//include_once "../../App/Controller/UserProfileController.php";
 use App\Controller\UserProfileController;
 
 //Reset le message de validation des modifs d'options
@@ -19,8 +19,6 @@ $_SESSION['MessageOptions'] = "";
     //Notes de restau 
     $UserProfile = new UserProfileController();
     $ListeNotes = $UserProfile->getLoggedUserNotes(1);
-    //while($ligne=$UserProfile->fetch())
-
     $IsEmpty = false;
 
     ?>

@@ -1,22 +1,18 @@
-<?php
-
-    ?>
     
 
-    
+
 <section>
+    <div class="NotesListe">
+        <center>
+            <h1>Options utilisateur :</h1><br/>
 
-<div class="NotesListe">
-<center>
-<h1>Options utilisateur :</h1><br/>
 <?php
 //Reset le message de validation des modifs d'options
 if (isset ($_SESSION['MessageOptions']))
 {
     echo $_SESSION['MessageOptions'];
-    //echo "<b>Vos modifications ont été enregistrées.</b><br/>";
 }
-    ?>
+?>
 
 
     <div id="formChange">
@@ -39,24 +35,17 @@ if (isset ($_SESSION['MessageOptions']))
 
         </form>
         <br/>
-
+        <h3>Options diverses</h3>
         <form name="StayLogged" method="post" action="ChangeRéglages-validation.php">
             <input type="checkbox" id="StayLogged" name='StayLogged' >
             <label for="StayLogged" type="checkbox">Rester connecté à mon compte</label>
                 <br/><br/>
-        
             <input type="submit" class="OngletsIndividualButton" name="login" value="Valider réglages"/>
         </form>
-        
-<br/><br/>
-</center>
+            <br/><br/>
+
+        </center>
     </div>
-</section>
-
-
-
-
- 
 
 </div>
-
+</section>
