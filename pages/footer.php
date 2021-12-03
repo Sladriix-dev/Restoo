@@ -1,7 +1,7 @@
 <footer>
     <div style="contact">
         <p>Téléphone : 01 23 45 67 89</p>
-        <p>Contact : <a class="email-contact" href="mailto:restoo-contact@gmail.com">restoo-contact@gmail.com</a></p><br />
+        <p>Contact : <a class="email-contact" href="mailto:restoo-contact@gmail.com">restoo-contact@gmail.com</a></p>
         <p>Horaires : 11H00 à 15H00, 18H30 à 23H30</p>
     </div>
     <hr>
